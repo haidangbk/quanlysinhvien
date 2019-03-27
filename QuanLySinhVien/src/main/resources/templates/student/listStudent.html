@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<div th:replace="common/common :: bootstrap"></div>
+</head>
+<body>
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Email</th>
+				<th>Phone Number</th>
+				<th>Name</th>
+				<th>Year of Birthda</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="student : ${students}">
+				<td th:text="${student.student_id}"></td>
+				<td th:text="${student.email}"></td>
+				<td th:text="${student.phone_number}"></td>
+				<td th:text="${student.student.student_name}"></td>
+				<td th:text="${student.student.year_of_birthday}"></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

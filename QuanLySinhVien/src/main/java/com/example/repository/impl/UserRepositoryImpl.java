@@ -41,8 +41,8 @@ public class UserRepositoryImpl implements UserRepository {
 
 	@Override
 	public Optional<User> getUser(String email, String password) {
-		String jql = "SELECT u FROM User u WHERE u.email = :email AND u.user_password = "+password;
-		Query query = entityManager.createQuery(jql).setParameter("email", email);
+		String jql = "SELECT u FROM User u WHERE u.email = :email AND u.user_password = :password";
+		Query query = entityManager.createQuery(jql,User.class).setParameter("email", email).setParameter("password", password);
 		return (Optional<User>) query.getSingleResult();
 	}
 

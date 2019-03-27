@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,6 +28,7 @@ import lombok.NoArgsConstructor;
 public class User {
 
 	@Id
+	@Column(name="user_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int user_id;
 
@@ -42,12 +44,10 @@ public class User {
 	@JoinColumn(name = "id", nullable = false)
 	private Role role;
 
-	@OneToOne
-	@JoinColumn(name = "student_id", referencedColumnName = "student_id")
+	@OneToOne(mappedBy="user")
 	private Student student;
 
-	@OneToOne
-	@JoinColumn(name = "lecturer_id", referencedColumnName = "lecturer_id")
+	@OneToOne(mappedBy = "userLec")
 	private Lecturer lecturer;
 
 	@ManyToMany(cascade = { CascadeType.ALL })

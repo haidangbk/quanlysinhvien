@@ -1,6 +1,6 @@
 package com.example.entities;
 
-import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,23 +14,25 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name="student")
+@Table(name = "student")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Student {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "student_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int student_id;
-	
+
 	private String student_name;
-	
+
 	private int year_of_birthday;
-	
+
 	private int number;
-	
-	
-	@OneToOne(mappedBy="student")
+
+	@OneToOne
+	@JoinColumn(name = "user_id", referencedColumnName = "user_id")
 	private User user;
+
 }
