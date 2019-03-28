@@ -7,24 +7,24 @@
 </head>
 <body>
 	<div>
-		<h1 th:text="#{label.student.list}" style="text-align: center"></h1>
+		<h1 th:text="#{label.lecturer.list}" style="text-align: center"></h1>
 	</div>
 	<div th:replace="common/common :: nav_top"></div>
 	<table class="table table-hover">
 		<thead>
 			<tr>
-				<th scope="col" th:text="#{label.student.id}"></th>
-				<th scope="col" th:text="#{label.student.name}"></th>
+				<th scope="col" th:text="#{label.lecturer.id}"></th>
+				<th scope="col" th:text="#{label.lecturer.name}"></th>
 				<th scope="col" th:text="#{label.email}"></th>
 				<th scope="col" th:text="#{label.phone}"></th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr th:each="student : ${students}">
-				<th scope="row" th:text="${student.student.student_id}"></th>
-				<td th:text="${student.student.student_name}"></td>
-				<td th:text=${student.email}></td>
-				<td th:text=${student.phone_number}></td>
+			<tr th:each="lecturer : ${lecturers}">
+				<th scope="row" th:text="${lecturer.lecturer.lecturer_id}"></th>
+				<td th:text="${lecturer.lecturer.lecturer_name}"></td>
+				<td th:text=${lecturer.email}></td>
+				<td th:text=${lecturer.phone_number}></td>
 			</tr>
 		</tbody>
 	</table>

@@ -22,28 +22,10 @@ public class UserRepositoryImpl implements UserRepository {
 	EntityManager entityManager;
 
 	@Override
-	public List<User> getAllUser() {
-		String jql = "SELECT u FROM User u";
-		return entityManager.createQuery(jql).getResultList();
-	}
-
-	@Override
-	public List<User> getUserYetRemove() {
-		String jql = "SELECT u FROM User u WHERE u.flag_delete = 0";
-		return entityManager.createQuery(jql).getResultList();
-	}
-
-	@Override
-	public List<User> getUserRemoved() {
-		String jql = "SELECT u FROM User u WHERE u.flag_delete = 1";
-		return entityManager.createQuery(jql).getResultList();
-	}
-
-	@Override
-	public Optional<User> getUser(String email, String password) {
+	public User getUser(String email, String password) {
 		String jql = "SELECT u FROM User u WHERE u.email = :email AND u.user_password = :password";
 		Query query = entityManager.createQuery(jql,User.class).setParameter("email", email).setParameter("password", password);
-		return (Optional<User>) query.getSingleResult();
+		return (User) query.getSingleResult();
 	}
 
 }

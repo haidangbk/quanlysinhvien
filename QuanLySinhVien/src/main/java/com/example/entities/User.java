@@ -41,7 +41,7 @@ public class User {
 	private int flag_delete;
 
 	@ManyToOne
-	@JoinColumn(name = "id", nullable = false)
+	@JoinColumn(name = "role_id", nullable = false)
 	private Role role;
 
 	@OneToOne(mappedBy="user")

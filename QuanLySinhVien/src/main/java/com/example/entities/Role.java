@@ -22,9 +22,9 @@ import lombok.NoArgsConstructor;
 public class Role {
 	
 	@Id
-	@Column(name="id")
+	@Column(name="role_id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private int role_id;
 	
 	private String role_name;
 	

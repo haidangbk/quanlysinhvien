@@ -32,13 +32,11 @@ public class UserController {
 	
 	@PostMapping(value="/login")
 	public String login(@RequestParam (name="email")String email, @RequestParam(name="password")String password) {
-		Optional<User> user = userService.getUser(email, password);
-		if(user.isPresent()) {
+		User user = userService.getUser(email, password);
+		if(user != null) {
 			return "redirect:/home";
 		}
-		else {
-			return "login";
-		}
+		return "login";
 	}
 	
 }

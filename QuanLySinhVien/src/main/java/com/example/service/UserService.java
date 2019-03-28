@@ -6,11 +6,6 @@ import java.util.Optional;
 import com.example.entities.User;
 
 public interface UserService {
-	public List<User> getAllUser();
-
-	public List<User> getUserYetRemove();
 	
-	public List<User> getUserRemoved();
-	
-	public Optional<User> getUser(String email, String password);
+	public User getUser(String email, String password);
 }

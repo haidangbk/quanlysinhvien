@@ -7,11 +7,5 @@ import com.example.entities.User;
 
 public interface UserRepository {
 	
-	public List<User> getAllUser();
-	
-	public List<User> getUserYetRemove();
-	
-	public List<User> getUserRemoved();
-	
-	public Optional<User> getUser(String email, String password);
+	public User getUser(String email, String password);
 }
